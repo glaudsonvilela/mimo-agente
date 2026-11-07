@@ -80,6 +80,10 @@ python3 -m unittest test_security test_autonomy test_public_api test_learning \
 
 A integração contínua executa essa seleção portátil. Outros testes no diretório `backend` dependem do aparelho, do navegador ou de ferramentas preparadas no ambiente local.
 
+## Autoria
+
+Criado por [Invasor_ZIM (@glaudsonvilela)](https://github.com/glaudsonvilela).
+
 ## Licença e dependências
 
 O código do projeto é distribuído sob a **[licença MIT](LICENSE)**. A licença não altera os termos das dependências, ferramentas e modelos externos.
