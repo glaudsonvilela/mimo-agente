@@ -1,7 +1,8 @@
 <p align="center">
-  <img src="docs/assets/mimo.png" alt="Mimo, o mascote do agente" width="260">
+  <img src="docs/assets/mimo.png" alt="Mascote do Mimo" width="140" height="170">
+  <img src="docs/assets/mimo-wordmark.svg" alt="mimo" width="190" height="170">
 </p>
-<h1 align="center">Mimo · agente local</h1>
+<p align="center"><strong>Agente local para Android</strong></p>
 <p align="center">Um companheiro para explorar sites, acompanhar verificações e aprender com evidências no Android.</p>
 <p align="center"><a href="LICENSE">MIT</a> · Android 8+ · Python · Java · JavaScript</p>
 
