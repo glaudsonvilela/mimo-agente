@@ -1,0 +1,55 @@
+{
+  "javascript": true,
+  "browser": "android_webview",
+  "lab_origins": [],
+  "targets": {},
+  "forensics": {
+    "enabled": true,
+    "max_bytes": 134217728,
+    "minimum_free": 67108864
+  },
+  "navigation": {
+    "observe_ms": 1500,
+    "idle_ms": 400,
+    "page_seconds": 15,
+    "actions": []
+  },
+  "verification": {
+    "checks": [
+      "csp_absent",
+      "csp_script_unrestricted",
+      "csp_unsafe_eval",
+      "csp_inline_allowed",
+      "hsts_absent",
+      "hsts_invalid",
+      "nosniff_missing",
+      "frame_guard_missing",
+      "referrer_unsafe",
+      "cookie_without_secure",
+      "cookie_without_httponly",
+      "cookie_samesite_unspecified",
+      "cookie_none_without_secure",
+      "http_unencrypted",
+      "mixed_content",
+      "password_form_http",
+      "password_form_get",
+      "error_detail_marker"
+    ],
+    "max_requests": 2
+  },
+  "limits": {
+    "pages": 20,
+    "depth": 2,
+    "seconds": 90,
+    "requests": 90,
+    "discovered": 300,
+    "interval": 0.35,
+    "bytes": 262144
+  },
+  "traversal": {
+    "mode": "exhaustive",
+    "max_urls": 5000,
+    "max_requests": 15000,
+    "max_seconds": 3600
+  }
+}

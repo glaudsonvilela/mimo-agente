@@ -1,0 +1,16 @@
+{
+  "name": "poco-mimo-preview",
+  "version": "1.0.0",
+  "description": "Prévia mobile do POCO Agent com mascote animado, conversa, documentação e atividade pública.",
+  "scripts": {
+    "build": "esbuild src/main.js --bundle --minify --format=iife --target=es2020 --outfile=dist/app.js",
+    "check": "node --check src/main.js && node --check src/mascot.js && node --check src/phone-adapter.js && node --check src/documentation.js && node --check src/live-session.js && node --check src/download.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}

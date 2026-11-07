@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {webcrypto} from 'node:crypto';
+import {learningSpeech} from '../frontend/src/mascot.js';
+import {createLiveSession} from '../frontend/src/live-session.js';
+if(!globalThis.crypto)globalThis.crypto=webcrypto;
+assert.equal(learningSpeech({reasoning:'private'}),null);
+assert.equal(learningSpeech({learning_message:'x'.repeat(300),learning_kind:'unsafe',learning_seq:'1'}).text.length,200);
+assert.equal(learningSpeech({learning_message:'Fato',learning_kind:'saved',learning_seq:'1'}).kind,'saved');
+let payload,learned,messages=0,updated='';
+const ui={connection(){},active(){},clear(){},documentStart(){},message(){messages++;return {};},phase(){},notify(){},documentState(){},event(){},eventCount(){return 0;},updateMessage(row,text){updated=text;},learning(snapshot){learned=snapshot.learning_message;}};
+const live=createLiveSession({sendMessage(s){payload=JSON.parse(s);}},ui);
+live.receive({updated_at:1,active:false});assert.equal(live.submit('Analise cuidadosamente','https://fixture.invalid'),true);
+assert.ok(payload.request_id);assert.equal(messages,2);
+assert.equal(live.receive({updated_at:2,request_id:'old-request',prompt:'Mapeamento QA solicitado',scope:'https://fixture.invalid/',active:true}).pending,true);
+live.receive({updated_at:3,request_id:payload.request_id,prompt:'Mapeamento QA solicitado',scope:'https://fixture.invalid/',active:false,phase:'Concluído',content:'Resultado real',learning_message:'Guardei observações',learning_kind:'saved',learning_seq:'42'});
+assert.equal(messages,2);assert.equal(updated,'Resultado real');assert.equal(learned,'Guardei observações');
+console.log('Learning UI PASS: public facts only, bounds, command correlation, canonical URLs and redacted prompt.');

@@ -1,0 +1,40 @@
+# Dependências e compilação local
+node_modules/
+build/
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+# Credenciais, APKs e assinatura
+.env
+.env.*
+**/WebConfig.java
+*.apk
+*.idsig
+*.jks
+*.keystore
+*.pem
+*.key
+backend/token
+# Dados gerados no aparelho
+backend/qa-settings.json
+backend/skills/
+backend/models/
+backend/runtime/
+backend/tools/
+backend/downloads/
+backend/projects/
+backend/reports/
+backend/logs/
+backend/memory/
+backend/learning/
+backend/qa-compat/
+backend/qa-fixtures/
+backend/forensic-*/
+backend/state*
+backend/qa-active*
+*.sqlite*
+*.db
+*.db-*
+*.pid
+backend/agent.lock
